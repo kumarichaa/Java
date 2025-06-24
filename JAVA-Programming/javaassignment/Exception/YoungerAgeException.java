@@ -1,0 +1,4 @@
+class YoungerAgeException extends RuntimeException
+{
+
+}
