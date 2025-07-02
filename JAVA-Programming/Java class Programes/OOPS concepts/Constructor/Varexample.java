@@ -1,10 +1,9 @@
-class Varexample
-{
-//var s=10;
-//error
+class VarExample {
+    // var s=10;
+    // error
 public static void main(String... s)
 {
-Var s1=new Varexample();
+VarExample s1=new VarExample();
 System.out.println(s1);
 Var char=10;
 Var z="hello";

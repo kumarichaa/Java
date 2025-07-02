@@ -1,5 +1,4 @@
 import java.net.*;
-import java.io.*;
 class UdpServer
 {
 	public static void main(String s1[]) throws Exception

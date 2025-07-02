@@ -1,5 +1,8 @@
 //import java.util.Scanner.*;
- class Bubblesort
+package Arrays;
+ 
+
+class BubbleSort
 {
 	public static void main(String[] args)
 	{

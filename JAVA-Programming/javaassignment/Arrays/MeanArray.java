@@ -1,3 +1,5 @@
+package Arrays;
+
 class MeanArray
 {
 	public static void main(String[] args)

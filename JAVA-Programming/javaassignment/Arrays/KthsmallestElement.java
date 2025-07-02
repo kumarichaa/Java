@@ -1,3 +1,6 @@
+
+package Arrays;
+
 class KthsmallestElement {
 	public static void main(String[] args) {
 		int[] a = { 5, 8, 12, 7, 6, 3, 2, 4 };

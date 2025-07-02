@@ -1,3 +1,5 @@
+package Arrays;
+
 class MergeTwoNumbers
 {
 	public static void main(String[] args)

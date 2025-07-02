@@ -1,3 +1,6 @@
+
+package Arrays;
+
 class NumberIsOnce
 {
 	public static void main(String[] args)

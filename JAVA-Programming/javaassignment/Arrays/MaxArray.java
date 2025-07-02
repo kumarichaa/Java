@@ -1,3 +1,5 @@
+package Arrays;
+
 class MaxArray
 {
 public static void main(String[] args)

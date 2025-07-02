@@ -1,3 +1,5 @@
+package Arrays;
+
 class BubbleStringSort
 {
 	public static void main(String[] args)

@@ -1,3 +1,5 @@
+package Arrays;
+
 class MissingNumber1
 {
 	public static void main(String[] args)

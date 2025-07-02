@@ -1,3 +1,5 @@
+package Arrays;
+
 class SecondLargest
 {
 	public static void main(String[] args)

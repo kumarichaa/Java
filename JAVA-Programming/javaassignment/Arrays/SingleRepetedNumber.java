@@ -1,4 +1,6 @@
-class SingleRepetedNumber
+package Arrays;
+
+class SingleRepeatedNumber
 {
 	public static void main(String[] args)
 	{

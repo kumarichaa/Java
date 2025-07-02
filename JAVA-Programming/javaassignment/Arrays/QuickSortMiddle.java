@@ -1,3 +1,5 @@
+package Arrays;
+
 class QuickSortMiddle
 {
 	public static void main(String[] args)

@@ -1,3 +1,5 @@
+package Arrays;
+
 class SecondSmallest1
 {
 	public static void main(String[] args)

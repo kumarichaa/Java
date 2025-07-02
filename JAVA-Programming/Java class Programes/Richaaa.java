@@ -1,26 +1,27 @@
-interface My
-{
+interface My {
 void show()
 {
 system.out.println("My");
 }
 }
-interface My1 extends My
-{
+
+interface My1 extends My {
 void display()
 {
 System.out.println("My1");
 }
 }
-/*interface My2 extends My1
-{
-void get();
-{
-System.out.println("My2");
-}
-}*/
-class Richaaa implements My,My1
-{
+
+/*
+ * interface My2 extends My1
+ * {
+ * void get();
+ * {
+ * System.out.println("My2");
+ * }
+ * }
+ */
+class Richaaa implements My, My1 {
 public static void main(String... s)
 {
 public void show()
