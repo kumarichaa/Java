@@ -1,4 +1,4 @@
-class Largestnumber
+class LargestNumber
 {
 public static void main(String... s)
 {

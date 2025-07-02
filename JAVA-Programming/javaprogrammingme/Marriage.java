@@ -5,7 +5,7 @@ public static void main(String... s)
 {
 System.out.println("Enter age");
 int A=new java .util.Scanner(System.in).nextInt();
-if(A>=21|||A>=18)
+if(A>=21 || A>=18)
 {
 System.out.println("Age is eligible for marriage(boys)");
 }

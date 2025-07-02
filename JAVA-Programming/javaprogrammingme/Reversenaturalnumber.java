@@ -1,4 +1,4 @@
-class Reversenaturalnumber
+class ReverseNaturalNumber
 {
 public static void main(String... s)
 {

@@ -11,7 +11,7 @@ class SquarePattern1
 		{
 			for(int j=1;j<=a;j++)
 			{
-				if(if(i==2&&j==2||i==3&&j==3))
+				if(i==2&&j==2||i==3&&j==3)
 				{
 					System.out.print(" ");
 				}

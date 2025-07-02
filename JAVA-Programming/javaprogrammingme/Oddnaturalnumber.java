@@ -1,4 +1,4 @@
-class Oddnaturalnumber
+class OddNaturalNumber
 {
 public static void main(String... s)
 {

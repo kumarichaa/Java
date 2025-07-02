@@ -1,4 +1,4 @@
-class Reverseevennumber
+class ReverseEvenNumber
 {
 public static void main(String... s)
 {

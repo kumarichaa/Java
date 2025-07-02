@@ -1,4 +1,4 @@
-class Evennaturalnumber
+class EvenNaturalNumber
 {
 public static void main(String... s)
 {	

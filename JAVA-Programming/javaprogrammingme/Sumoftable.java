@@ -1,4 +1,4 @@
-class Sumoftable
+class SumOfTable
 {
 public static void main(String... s)
 {

@@ -1,4 +1,4 @@
-class Numbergreater10
+class NumberGreater10
 {
 public static void main(String... s)
 {

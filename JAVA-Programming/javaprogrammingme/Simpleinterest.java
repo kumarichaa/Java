@@ -1,4 +1,4 @@
-class Simpleinterest
+class SimpleInterest
 {
 public static void main(String... s)
 {
