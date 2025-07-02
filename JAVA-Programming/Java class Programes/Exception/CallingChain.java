@@ -18,7 +18,7 @@ class CallingChain
 		{
 			new CallingChain().xyz();
 		}
-		catch(Exception e)
+		catch(ArithmeticException e)
 		{
 			e.printStackTrace();
 		}

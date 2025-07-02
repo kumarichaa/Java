@@ -30,7 +30,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class MoveFile {
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) throws java.io.IOException {
     Path source = Paths.get("f:\\manish123\\io\\Nio\\PathDemo.class");
     Path target = Paths.get("f:\\manish123\\io\\Nio\\FileLock\\PathDemo11.class");
 

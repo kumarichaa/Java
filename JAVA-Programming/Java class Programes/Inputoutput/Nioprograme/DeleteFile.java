@@ -18,7 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class DeleteFile {
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) throws java.io.IOException {
     Path p = Paths.get("f:\\manish123\\io\\Nio\\CopyFile.class");
 
     try {

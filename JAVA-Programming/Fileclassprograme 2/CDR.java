@@ -3,7 +3,7 @@
 import java.io.File;
 //create Delete Rename
 public class CDR {
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) throws java.io.IOException {
     File newFile = new File("my_new_file.txt");
     printFileDetails(newFile);
 
