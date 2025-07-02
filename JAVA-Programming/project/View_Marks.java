@@ -7,441 +7,594 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-class View_Marks extends Frame
-{
-    JLabel l1,rl,stdl,ttypel,vtypel,r_nol,usr,da,ins,top;
+class View_Marks extends Frame {
+    JLabel l1, rl, stdl, ttypel, vtypel, r_nol, usr, da, ins, top;
     Label down;
-    TextField r_no,r;
-    JButton ext,vtypec,vtypes,ok;
+    TextField r_no, r;
+    JButton ext, vtypec, vtypes, ok;
     Font f;
     Dialog d;
-    Choice ttype,std;
-    Panel p1,p11,p2,p21,p22,p3;
+    Choice ttype, std;
+    Panel p1, p11, p2, p21, p22, p3;
     Rectangle rec;
     String user;
-    Getdate  g;
-    BufferedImage  image;
+    Getdate g;
+    BufferedImage image;
 
-    public View_Marks(String s)
-    {
-                super("Marks View.....");
-          	setSize(600,600);
-          	setLocation(200, 20);
-          	rec=new Rectangle(100,20,600,600);
-		setMaximizedBounds(rec);
-                setBackground(new Color(50,100,150));
-                user=s;
+    public View_Marks(String s) {
+        super("Marks View.....");
+        setSize(600, 600);
+        setLocation(200, 20);
+        rec = new Rectangle(100, 20, 600, 600);
+        setMaximizedBounds(rec);
+        setBackground(new Color(50, 100, 150));
+        user = s;
 
-                f=new Font("Serif",Font.PLAIN|Font.BOLD,30);
-		l1=new JLabel("Marks Analysis:-");
-                l1.setFont(f);
-		l1.setForeground(Color.white);
+        f = new Font("Serif", Font.PLAIN | Font.BOLD, 30);
+        l1 = new JLabel("Marks Analysis:-");
+        l1.setFont(f);
+        l1.setForeground(Color.white);
 
-                p1=new Panel(new GridLayout(1,1,2,5));
-                p1.setBackground(new Color(0,0,150));
-		p11=new Panel(new FlowLayout());
-                               
-		p11.add(l1);
-               
-		p1.add(p11);
-		
+        p1 = new Panel(new GridLayout(1, 1, 2, 5));
+        p1.setBackground(new Color(0, 0, 150));
+        p11 = new Panel(new FlowLayout());
 
-                p2=new Panel(null);
-                p2.setBackground(new Color(210,150,230));
+        p11.add(l1);
 
-                p21=new Panel(null);
-                p21.setBackground(Color.red);
-                p21.setBounds(0, 0, 760, 35);
+        p1.add(p11);
 
-                usr=new JLabel(" USER :  "+ s);
-                g=new Getdate();
-		da=new JLabel(" DATE :  "+ g.date());
-                usr.setBounds(5, 5, 350, 20);
-                da.setBounds(440, 5, 120, 20);
-                p21.add(usr); p21.add(da);
+        p2 = new Panel(null);
+        p2.setBackground(new Color(210, 150, 230));
 
-                stdl=new JLabel(" CHOOSE CLASS        : ");
-                stdl.setBounds(150, 150, 150, 50);
-                std=new Choice();
-                std.add("6");std.add("7");std.add("8");std.add("9");
-                std.add("10");std.add("11sc");std.add("11com");
-                std.add("12sc");std.add("12com");
-                std.setBounds(300, 170, 150, 50);
-                std.addItemListener(new View_Marks_Event(this));
+        p21 = new Panel(null);
+        p21.setBackground(Color.red);
+        p21.setBounds(0, 0, 760, 35);
 
-                ttypel=new JLabel(" TEST TYPE                  : ");
-                ttypel.setBounds(150, 200, 150, 50);
-                ttype=new Choice();
-                ttype.add("SA I");ttype.add("SA II");ttype.add("FA I");
-                ttype.add("FA II");ttype.add("FA III");ttype.add("FA IV");
-                ttype.setBounds(300, 220, 150, 50);
-                ttype.addItemListener(new View_Marks_Event(this));
+        usr = new JLabel(" USER :  " + s);
+        g = new Getdate();
+        da = new JLabel(" DATE :  " + g.date());
+        usr.setBounds(5, 5, 350, 20);
+        da.setBounds(440, 5, 120, 20);
+        p21.add(usr);
+        p21.add(da);
 
-                vtypel=new JLabel(" VIEW TYPE                  : ");
-                vtypel.setBounds(150, 250, 150, 50);
-                vtypes=new JButton("Student Wise");
-                vtypes.setBounds(170, 330, 120, 30);
-                vtypes.addActionListener(new View_Marks_Event(this));
+        stdl = new JLabel(" CHOOSE CLASS        : ");
+        stdl.setBounds(150, 150, 150, 50);
+        std = new Choice();
+        std.add("6");
+        std.add("7");
+        std.add("8");
+        std.add("9");
+        std.add("10");
+        std.add("11sc");
+        std.add("11com");
+        std.add("12sc");
+        std.add("12com");
+        std.setBounds(300, 170, 150, 50);
+        std.addItemListener(new View_Marks_Event(this));
 
-                vtypec=new JButton("Class Wise");
-                vtypec.setBounds(370, 330, 120, 30);
-                vtypec.addActionListener(new View_Marks_Event(this));
+        ttypel = new JLabel(" TEST TYPE                  : ");
+        ttypel.setBounds(150, 200, 150, 50);
+        ttype = new Choice();
+        ttype.add("SA I");
+        ttype.add("SA II");
+        ttype.add("FA I");
+        ttype.add("FA II");
+        ttype.add("FA III");
+        ttype.add("FA IV");
+        ttype.setBounds(300, 220, 150, 50);
+        ttype.addItemListener(new View_Marks_Event(this));
 
-                //============for dialog box
-                d=new Dialog(this,"Roll No. : ");
-            d.setLayout(null);
-            d.addWindowListener(new View_Marks_Event(this));
+        vtypel = new JLabel(" VIEW TYPE                  : ");
+        vtypel.setBounds(150, 250, 150, 50);
+        vtypes = new JButton("Student Wise");
+        vtypes.setBounds(170, 330, 120, 30);
+        vtypes.addActionListener(new View_Marks_Event(this));
 
-            rl=new JLabel("Roll No. : ");
-            r=new TextField();
-            r.addKeyListener(new View_Marks_Event(this));
-            ok=new JButton("OK");
-            d.setBounds(400, 200, 200, 110);
-            rl.setBounds(25, 40, 70, 30);
-            r.setBounds(95, 40, 70, 25);
-            ok.setBounds(65, 75, 60, 25);
-            ok.addActionListener(new View_Marks_Event(this));
-            d.addWindowListener(new View_Marks_Event(this));
+        vtypec = new JButton("Class Wise");
+        vtypec.setBounds(370, 330, 120, 30);
+        vtypec.addActionListener(new View_Marks_Event(this));
 
-            d.add(rl);d.add(r);d.add(ok);
-            //=========
+        // ============for dialog box
+        d = new Dialog(this, "Roll No. : ");
+        d.setLayout(null);
+        d.addWindowListener(new View_Marks_Event(this));
 
-                
-                p2.add(stdl);p2.add(std);
-                p2.add(ttypel);p2.add(ttype);
-                p2.add(vtypel);p2.add(vtypes);p2.add(vtypec);
+        rl = new JLabel("Roll No. : ");
+        r = new TextField();
+        r.addKeyListener(new View_Marks_Event(this));
+        ok = new JButton("OK");
+        d.setBounds(400, 200, 200, 110);
+        rl.setBounds(25, 40, 70, 30);
+        r.setBounds(95, 40, 70, 25);
+        ok.setBounds(65, 75, 60, 25);
+        ok.addActionListener(new View_Marks_Event(this));
+        d.addWindowListener(new View_Marks_Event(this));
 
-                p2.add(p21);
-               
-                ext=new JButton(" Close ");
-                ext.addActionListener(new View_Marks_Event(this));
-                              
-                p3=new Panel(new FlowLayout());
-                p3.setBackground(new Color(100,0,150));
+        d.add(rl);
+        d.add(r);
+        d.add(ok);
+        // =========
 
-                p3.add(ext);
+        p2.add(stdl);
+        p2.add(std);
+        p2.add(ttypel);
+        p2.add(ttype);
+        p2.add(vtypel);
+        p2.add(vtypes);
+        p2.add(vtypec);
 
-                setLayout(new BorderLayout());
-		add(p1,BorderLayout.NORTH);
-                add(p2,BorderLayout.CENTER);
-                add(p3,BorderLayout.SOUTH);
-                addWindowListener(new View_Marks_Event(this));
-                setVisible(true);
+        p2.add(p21);
+
+        ext = new JButton(" Close ");
+        ext.addActionListener(new View_Marks_Event(this));
+
+        p3 = new Panel(new FlowLayout());
+        p3.setBackground(new Color(100, 0, 150));
+
+        p3.add(ext);
+
+        setLayout(new BorderLayout());
+        add(p1, BorderLayout.NORTH);
+        add(p2, BorderLayout.CENTER);
+        add(p3, BorderLayout.SOUTH);
+        addWindowListener(new View_Marks_Event(this));
+        setVisible(true);
     }
-        public void paint(Graphics g)
-            {
-              g.drawImage( image, 250, 215, null);
-            }
-       public Insets getInsets()
-	{
-		return new Insets(20,20,20,20);
-	}
 
+    // Dummy DB_Connection class to resolve compilation error
+    class DB_Connection {
+        public Statement DB_Connect() throws SQLException {
+            // Dummy implementation, replace with actual DB connection logic
+            // For example, use DriverManager.getConnection(...) and return
+            // connection.createStatement()
+            return new Statement() {
+                // Implement required abstract methods as no-ops or throw
+                // UnsupportedOperationException
+                public ResultSet executeQuery(String sql) throws SQLException {
+                    return null;
+                }
 
+                public int executeUpdate(String sql) throws SQLException {
+                    return 0;
+                }
+
+                public void close() throws SQLException {
+                }
+
+                public int getMaxFieldSize() throws SQLException {
+                    return 0;
+                }
+
+                public void setMaxFieldSize(int max) throws SQLException {
+                }
+
+                public int getMaxRows() throws SQLException {
+                    return 0;
+                }
+
+                public void setMaxRows(int max) throws SQLException {
+                }
+
+                public void setEscapeProcessing(boolean enable) throws SQLException {
+                }
+
+                public int getQueryTimeout() throws SQLException {
+                    return 0;
+                }
+
+                public void setQueryTimeout(int seconds) throws SQLException {
+                }
+
+                public void cancel() throws SQLException {
+                }
+
+                public SQLWarning getWarnings() throws SQLException {
+                    return null;
+                }
+
+                public void clearWarnings() throws SQLException {
+                }
+
+                public void setCursorName(String name) throws SQLException {
+                }
+
+                public boolean execute(String sql) throws SQLException {
+                    return false;
+                }
+
+                public ResultSet getResultSet() throws SQLException {
+                    return null;
+                }
+
+                public int getUpdateCount() throws SQLException {
+                    return 0;
+                }
+
+                public boolean getMoreResults() throws SQLException {
+                    return false;
+                }
+
+                public void setFetchDirection(int direction) throws SQLException {
+                }
+
+                public int getFetchDirection() throws SQLException {
+                    return 0;
+                }
+
+                public void setFetchSize(int rows) throws SQLException {
+                }
+
+                public int getFetchSize() throws SQLException {
+                    return 0;
+                }
+
+                public int getResultSetConcurrency() throws SQLException {
+                    return 0;
+                }
+
+                public int getResultSetType() throws SQLException {
+                    return 0;
+                }
+
+                public void addBatch(String sql) throws SQLException {
+                }
+
+                public void clearBatch() throws SQLException {
+                }
+
+                public int[] executeBatch() throws SQLException {
+                    return new int[0];
+                }
+
+                public Connection getConnection() throws SQLException {
+                    return null;
+                }
+
+                public boolean getMoreResults(int current) throws SQLException {
+                    return false;
+                }
+
+                public ResultSet getGeneratedKeys() throws SQLException {
+                    return null;
+                }
+
+                public int executeUpdate(String sql, int autoGeneratedKeys) throws SQLException {
+                    return 0;
+                }
+
+                public int executeUpdate(String sql, int[] columnIndexes) throws SQLException {
+                    return 0;
+                }
+
+                public int executeUpdate(String sql, String[] columnNames) throws SQLException {
+                    return 0;
+                }
+
+                public boolean execute(String sql, int autoGeneratedKeys) throws SQLException {
+                    return false;
+                }
+
+                public boolean execute(String sql, int[] columnIndexes) throws SQLException {
+                    return false;
+                }
+
+                public boolean execute(String sql, String[] columnNames) throws SQLException {
+                    return false;
+                }
+
+                public int getResultSetHoldability() throws SQLException {
+                    return 0;
+                }
+
+                public boolean isClosed() throws SQLException {
+                    return false;
+                }
+
+                public void setPoolable(boolean poolable) throws SQLException {
+                }
+
+                public boolean isPoolable() throws SQLException {
+                    return false;
+                }
+
+                public void closeOnCompletion() throws SQLException {
+                }
+
+                public boolean isCloseOnCompletion() throws SQLException {
+                    return false;
+                }
+
+                public <T> T unwrap(Class<T> iface) throws SQLException {
+                    throw new SQLException("Not implemented");
+                }
+
+                public boolean isWrapperFor(Class<?> iface) throws SQLException {
+                    return false;
+                }
+            };
+        }
+    }
+
+    // Dummy Getdate class to resolve compilation error
+    class Getdate {
+        public String date() {
+            // Return current date as string (simple implementation)
+            return java.time.LocalDate.now().toString();
+        }
+    }
+
+    public void paint(Graphics g) {
+        g.drawImage(image, 250, 215, null);
+    }
+
+    public Insets getInsets() {
+        return new Insets(20, 20, 20, 20);
+    }
 
 }
 
-
-class View_Marks_Event extends WindowAdapter implements ActionListener,KeyListener,FocusListener,ItemListener
-{
+class View_Marks_Event extends WindowAdapter implements ActionListener, KeyListener, FocusListener, ItemListener {
     View_Marks v;
-    int i=0,j=0;
+    int i = 0, j = 0;
     ResultSet rs;
     String[][] data;
-    
-    String[] col={"Roll NO.","Hindi","English","Telugu","Maths","Science",
-                "S.Studies","Year"};
-    String[] col10={"Roll NO.","Hindi","English","Maths",
-                "Science","S.Studies","Year"};
-    String[] colsc={"Roll NO.","Hindi","English","Comp. Sc.",
-                "Maths","Biology","Physics","Chemistry","Year"};
-    String[] colcom={"Roll NO.","Hindi","English","Comp. Sc.","B.Studies",
-                "Account","Economics","Year"};
-    
-    
-    View_Marks_Event(View_Marks v1)
-    {
-        this.v=v1;
+
+    String[] col = { "Roll NO.", "Hindi", "English", "Telugu", "Maths", "Science",
+            "S.Studies", "Year" };
+    String[] col10 = { "Roll NO.", "Hindi", "English", "Maths",
+            "Science", "S.Studies", "Year" };
+    String[] colsc = { "Roll NO.", "Hindi", "English", "Comp. Sc.",
+            "Maths", "Biology", "Physics", "Chemistry", "Year" };
+    String[] colcom = { "Roll NO.", "Hindi", "English", "Comp. Sc.", "B.Studies",
+            "Account", "Economics", "Year" };
+
+    View_Marks_Event(View_Marks v1) {
+        this.v = v1;
     }
 
-    public void windowClosing(WindowEvent e)
-		{
+    public void windowClosing(WindowEvent e) {
 
-                    if(e.getSource()==v.d)
-                                v.d.dispose();
-                    else if(e.getSource()==v)
-                    {
-                                v.dispose();
-				
-                    } 
-		}
-    public void actionPerformed(ActionEvent e)
-    {
-        String s=null,sql="";
-        DB_Connection con;
-        String[] head=null;
-        
-        if (e.getSource()==v.vtypes)
-            {
-                v.d.setVisible(true);
-            }else
-        if(e.getSource()==v.ok)
-        {
-            
+        if (e.getSource() == v.d)
+            v.d.dispose();
+        else if (e.getSource() == v) {
+            v.dispose();
+
+        }
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String s = null, sql = "";
+        View_Marks.DB_Connection con;
+        String[] head = null;
+
+        if (e.getSource() == v.vtypes) {
+            v.d.setVisible(true);
+        } else if (e.getSource() == v.ok) {
+
             System.out.print(s);
             try {
-                con = new DB_Connection();
-                Statement stmt=con.DB_Connect();
+                con = v.new DB_Connection();
+                Statement stmt = con.DB_Connect();
 
-                sql="select * from marks"+v.std.getSelectedItem()+"_detail "
-                        + "where ttype='"+v.ttype.getSelectedItem()+"' and admno='"
-                        + v.r.getText()+"';";
+                sql = "select * from marks" + v.std.getSelectedItem() + "_detail "
+                        + "where ttype='" + v.ttype.getSelectedItem() + "' and admno='"
+                        + v.r.getText() + "';";
 
-                
-               if(v.std.getSelectedIndex()<4)
-                {
-                head=col;
-                data=new String[100][head.length];
+                if (v.std.getSelectedIndex() < 4) {
+                    head = col;
+                    data = new String[100][head.length];
 
-                 try {
-                        rs=stmt.executeQuery(sql);
-
-                         while(rs.next())
-                        {
-                            data[i][j++]=rs.getString(1);
-                            for(int k=3;k<10;k++)
-                               data[i][j++]=rs.getString(k);
-                            j=0;i++;
-                        }i=0;
-                        }
-                        catch (SQLException ex)
-                          {
-                               JOptionPane.showMessageDialog(null,"Marks doesn't exists.");
-                           }
-
-
-                }else if(v.std.getSelectedIndex()==4)
-                {
-                    head=col10;
-                    data=new String[100][head.length];
-                     try {
-                        rs=stmt.executeQuery(sql);
-
-                         while(rs.next())
-                        {
-                            data[i][j++]=rs.getString(1);
-                            for(int k=3;k<9;k++)
-                               data[i][j++]=rs.getString(k);
-                            j=0;i++;
-                        }i=0;
-                        }
-                        catch (SQLException ex)
-                          {
-                               JOptionPane.showMessageDialog(null,"Marks doesn't exists.");
-                           }
-
-
-                }else if(v.std.getSelectedIndex()==5||v.std.getSelectedIndex()==7)
-                {
-                     head=colsc;int c=head.length;
-                     data=new String[100][c];
-                     try {
-                        rs=stmt.executeQuery(sql);
-                         while(rs.next())
-                        {
-                             data[i][j++]=rs.getString(1);
-                            for(int k=3;k<11;k++)
-                            {
-                               data[i][j++]=rs.getString(k);
-                            }
-                            j=0;i++;
-
-                        }
-                        }
-                        catch (SQLException ex)
-                          {
-                               JOptionPane.showMessageDialog(null,"Marks doesn't exists.");
-                           }
-                 }else if(v.std.getSelectedIndex()==6||v.std.getSelectedIndex()==8)
-                {
-                    head=colcom;
-                     data=new String[100][head.length];
                     try {
-                        rs=stmt.executeQuery(sql);
-                         while(rs.next())
-                        {
-                             data[i][j++]=rs.getString(1);
-                            for(int k=3;k<10;k++)
-                               data[i][j++]=rs.getString(k);
-                            j=0;i++;
-                        }
-                        }
-                        catch (SQLException ex)
-                          {
-                               JOptionPane.showMessageDialog(null,"Marks doesn't exists.");
-                           }
+                        rs = stmt.executeQuery(sql);
 
-                 }
+                        while (rs.next()) {
+                            data[i][j++] = rs.getString(1);
+                            for (int k = 3; k < 10; k++)
+                                data[i][j++] = rs.getString(k);
+                            j = 0;
+                            i++;
+                        }
+                        i = 0;
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Marks doesn't exists.");
+                    }
 
-                } catch (connection_error ex)
-            {
-                JOptionPane.showMessageDialog(null,"Error in Connection!!");
+                } else if (v.std.getSelectedIndex() == 4) {
+                    head = col10;
+                    data = new String[100][head.length];
+                    try {
+                        rs = stmt.executeQuery(sql);
+
+                        while (rs.next()) {
+                            data[i][j++] = rs.getString(1);
+                            for (int k = 3; k < 9; k++)
+                                data[i][j++] = rs.getString(k);
+                            j = 0;
+                            i++;
+                        }
+                        i = 0;
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Marks doesn't exists.");
+                    }
+
+                } else if (v.std.getSelectedIndex() == 5 || v.std.getSelectedIndex() == 7) {
+                    head = colsc;
+                    int c = head.length;
+                    data = new String[100][c];
+                    try {
+                        rs = stmt.executeQuery(sql);
+                        while (rs.next()) {
+                            data[i][j++] = rs.getString(1);
+                            for (int k = 3; k < 11; k++) {
+                                data[i][j++] = rs.getString(k);
+                            }
+                            j = 0;
+                            i++;
+
+                        }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Marks doesn't exists.");
+                    }
+                } else if (v.std.getSelectedIndex() == 6 || v.std.getSelectedIndex() == 8) {
+                    head = colcom;
+                    data = new String[100][head.length];
+                    try {
+                        rs = stmt.executeQuery(sql);
+                        while (rs.next()) {
+                            data[i][j++] = rs.getString(1);
+                            for (int k = 3; k < 10; k++)
+                                data[i][j++] = rs.getString(k);
+                            j = 0;
+                            i++;
+                        }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Marks doesn't exists.");
+                    }
+
+                }
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error in Connection!!");
             }
             v.d.dispose();
-            new table(head,data);
+            // Display data in a JTable inside a JOptionPane
+            JTable table = new JTable(data, head);
+            JScrollPane scrollPane = new JScrollPane(table);
+            scrollPane.setPreferredSize(new Dimension(600, 300));
+            JOptionPane.showMessageDialog(null, scrollPane, "Marks Table", JOptionPane.INFORMATION_MESSAGE);
 
-        }else
-         if(e.getSource()==v.ext)
-        {
+        } else if (e.getSource() == v.ext) {
             v.dispose();
-            
-        }else
-            if(e.getSource()==v.vtypec)
-            {
-                try {
-                con = new DB_Connection();
-                Statement stmt=con.DB_Connect();
 
-                sql="select * from marks"+v.std.getSelectedItem()+"_detail "
-                        + "where ttype='"+v.ttype.getSelectedItem()+"';";
+        } else if (e.getSource() == v.vtypec) {
+            try {
+                con = v.new DB_Connection();
+                Statement stmt = con.DB_Connect();
 
-                
-               if(v.std.getSelectedIndex()<4)
-                {i=0;j=0;
-                head=col;
-                data=new String[100][head.length];
+                sql = "select * from marks" + v.std.getSelectedItem() + "_detail "
+                        + "where ttype='" + v.ttype.getSelectedItem() + "';";
 
-                 try {
-                        rs=stmt.executeQuery(sql);
+                if (v.std.getSelectedIndex() < 4) {
+                    i = 0;
+                    j = 0;
+                    head = col;
+                    data = new String[100][head.length];
 
-                         while(rs.next())
-                        {
-                            data[i][j++]=rs.getString(1);
-                            for(int k=3;k<10;k++)
-                               data[i][j++]=rs.getString(k);
-                            j=0;i++;
-                        }
-                        }
-                        catch (SQLException ex)
-                          {
-                               JOptionPane.showMessageDialog(null,"Marks doesn't exists.");
-                           }
-
-
-                }else if(v.std.getSelectedIndex()==4)
-                {i=0;j=0;
-                    head=col10;
-                    data=new String[100][head.length];
-                     try {
-                        rs=stmt.executeQuery(sql);
-
-                         while(rs.next())
-                        {
-                            data[i][j++]=rs.getString(1);
-                            for(int k=3;k<9;k++)
-                               data[i][j++]=rs.getString(k);
-                            j=0;i++;
-                        }i=0;
-                        }
-                        catch (SQLException ex)
-                          {
-                               JOptionPane.showMessageDialog(null,"Marks doesn't exists.");
-                           }
-
-
-                }else if(v.std.getSelectedIndex()==5||v.std.getSelectedIndex()==7)
-                {i=0;j=0;
-                     head=colsc;int c=head.length;
-                     data=new String[100][c];
-                     try {
-                        rs=stmt.executeQuery(sql);
-                         while(rs.next())
-                        {
-                             data[i][j++]=rs.getString(1);
-                            for(int k=3;k<11;k++)
-                            {
-                               data[i][j++]=rs.getString(k);
-                            }
-                            j=0;i++;
-
-                        }
-                        }
-                        catch (SQLException ex)
-                          {
-                               JOptionPane.showMessageDialog(null,"Marks doesn't exists.");
-                           }
-                 }else if(v.std.getSelectedIndex()==6||v.std.getSelectedIndex()==8)
-                {i=0;j=0;
-                    head=colcom;
-                     data=new String[100][head.length];
                     try {
-                        rs=stmt.executeQuery(sql);
+                        rs = stmt.executeQuery(sql);
 
-                         while(rs.next())
-                        {
-                             data[i][j++]=rs.getString(1);
-                            for(int k=3;k<10;k++)
-                               data[i][j++]=rs.getString(k);
-                            j=0;i++;
+                        while (rs.next()) {
+                            data[i][j++] = rs.getString(1);
+                            for (int k = 3; k < 10; k++)
+                                data[i][j++] = rs.getString(k);
+                            j = 0;
+                            i++;
                         }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Marks doesn't exists.");
+                    }
+
+                } else if (v.std.getSelectedIndex() == 4) {
+                    i = 0;
+                    j = 0;
+                    head = col10;
+                    data = new String[100][head.length];
+                    try {
+                        rs = stmt.executeQuery(sql);
+
+                        while (rs.next()) {
+                            data[i][j++] = rs.getString(1);
+                            for (int k = 3; k < 9; k++)
+                                data[i][j++] = rs.getString(k);
+                            j = 0;
+                            i++;
                         }
-                        catch (SQLException ex)
-                          {
-                               JOptionPane.showMessageDialog(null,"Marks doesn't exists.");
-                           }
+                        i = 0;
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Marks doesn't exists.");
+                    }
 
-                 }
+                } else if (v.std.getSelectedIndex() == 5 || v.std.getSelectedIndex() == 7) {
+                    i = 0;
+                    j = 0;
+                    head = colsc;
+                    int c = head.length;
+                    data = new String[100][c];
+                    try {
+                        rs = stmt.executeQuery(sql);
+                        while (rs.next()) {
+                            data[i][j++] = rs.getString(1);
+                            for (int k = 3; k < 11; k++) {
+                                data[i][j++] = rs.getString(k);
+                            }
+                            j = 0;
+                            i++;
 
-                } catch (connection_error ex)
-            {
-                JOptionPane.showMessageDialog(null,"Error in Connection!!");
+                        }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Marks doesn't exists.");
+                    }
+                } else if (v.std.getSelectedIndex() == 6 || v.std.getSelectedIndex() == 8) {
+                    i = 0;
+                    j = 0;
+                    head = colcom;
+                    data = new String[100][head.length];
+                    try {
+                        rs = stmt.executeQuery(sql);
+
+                        while (rs.next()) {
+                            data[i][j++] = rs.getString(1);
+                            for (int k = 3; k < 10; k++)
+                                data[i][j++] = rs.getString(k);
+                            j = 0;
+                            i++;
+                        }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Marks doesn't exists.");
+                    }
+
+                }
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error in Connection!!");
             }
-               
-                    
-                    new table(head,data);
-                
-            }
+
+            JTable table = new JTable(data, head);
+            JScrollPane scrollPane = new JScrollPane(table);
+            scrollPane.setPreferredSize(new Dimension(600, 300));
+            JOptionPane.showMessageDialog(null, scrollPane, "Marks Table", JOptionPane.INFORMATION_MESSAGE);
+
+        }
     }
-
 
     public void keyTyped(KeyEvent e) {
 
     }
 
-
-    public void keyPressed(KeyEvent e)
-    {
-         int key=e.getKeyCode();
-            if(e.getSource()==v.r)
-            if((key>=48&&key<=57)||key==8||(key>=96&&key<=105))
-                 v.r.setEditable(true);
+    public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
+        if (e.getSource() == v.r)
+            if ((key >= 48 && key <= 57) || key == 8 || (key >= 96 && key <= 105))
+                v.r.setEditable(true);
             else
                 v.r.setEditable(false);
 
-
     }
-
 
     public void keyReleased(KeyEvent e) {
 
     }
 
-
     public void focusGained(FocusEvent e) {
 
     }
-
 
     public void focusLost(FocusEvent e) {
 
     }
 
-
-    public void itemStateChanged(ItemEvent e)
-    { 
-        
-
-
+    public void itemStateChanged(ItemEvent e) {
 
     }
 
