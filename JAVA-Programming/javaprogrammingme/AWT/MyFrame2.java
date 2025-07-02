@@ -1,4 +1,6 @@
+package AWT;
 import java.awt.*;
+
 class MyFrame2
 {
 	Frame f;
@@ -18,7 +20,7 @@ class MyFrame2
 		b1=new Button("ok");
 		b1.setBounds(40,100,60,30);
 		f.add(b1);
-		f.setlayout(null);
+		f.setLayout(null);
 		f.setSize(400,400);
 		f.setVisible(true);
 	}

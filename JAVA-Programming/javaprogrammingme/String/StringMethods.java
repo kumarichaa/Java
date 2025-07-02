@@ -1,3 +1,6 @@
+
+package String;
+
 class StringMethods
 {
 	public static void main(String[] args)
@@ -32,7 +35,7 @@ class StringMethods
 		//String s="Himanshu";
 		String str1="Himanshu";
 		//System.out.println(s2.equals(s1));
-		System.out.println(str.equalsIgnorecase(str1));
+		System.out.println(str.equalsIgnoreCase(str1));
 	
 	}
 }

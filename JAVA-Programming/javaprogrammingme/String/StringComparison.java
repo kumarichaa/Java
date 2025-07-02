@@ -1,5 +1,9 @@
+package String;
+
+
 
 //package StringComparisons;
+
 public class StringComparison
 {
 	public static void main(String args[])

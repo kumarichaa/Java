@@ -1,3 +1,6 @@
+package String;
+
+
 class RemoveReplace
 {
 	public static void main(String[] args)

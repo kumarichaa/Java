@@ -1,14 +1,16 @@
+package AWT;
 import java.awt.*;
+
 class Calculator
 {
-	frame f;
+	Frame f;
 	Label l;
 	Button b1;
 	TextField tf;
 	Calculator(String s,int i,int j)
 	{
 		
-		f=new frame(s);
+		f=new Frame(s);
 		tf=new TextField();
 		tf.setBounds(40,40,60,30);
 		f.add(tf);

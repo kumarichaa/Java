@@ -3,6 +3,6 @@ class ReadWrite
 {
 Void readFile()
 {
-FileInputStream fis=new FileInputStream();
+FileInputStream fis = new FileInputStream("path/to/your/file.txt");
 }
 }

@@ -10,13 +10,13 @@ class HeapSortArray
 	void sort(int[] arr)
 	{
 		int leng=arr.length;
-		for(int i=len/2-1;i>=0;i--)
+		for(int i=leng/2-1;i>=0;i--)
 		{
 			heapify(arr,leng,i);
 			
 		}
 		//swap the elements and heapify
-		for(int i=length-1;i>=0;i--)
+		for(int i=leng-1;i>=0;i--)
 		{
 			int temp=arr[0];
 			arr[0]=arr[i];

@@ -13,7 +13,7 @@ class Test1 extends Test
 		System.out.println("2");
 		//return null;
 	}
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		Test t=new Test();
 		t.show();

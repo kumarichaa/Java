@@ -1,3 +1,6 @@
+package String;
+
+
 class Searching
 {
 	public static void main(String[] args)

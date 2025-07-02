@@ -1,4 +1,6 @@
+package AWT;
 import java.awt.*;
+
 class MyFrame extends Frame
 {
 	MyFrame(String s)

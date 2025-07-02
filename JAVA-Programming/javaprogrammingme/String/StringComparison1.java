@@ -1,3 +1,6 @@
+package String;
+
+
 public class StringComparison1
 {
 	public static void main(String[] args)

@@ -2,7 +2,7 @@ class BubbleStringSort
 {
 	public static void main(String[] args)
 	{
-		String[] arr={"deepak","richa","suman","rahul","himashu","amit"};
+		String[] arr={"deepak","richa","suman","riya","himanshu","amit"};
 		String temp;
 		for(int i=0;i<arr.length;i++)
 		{

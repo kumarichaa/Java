@@ -7,7 +7,7 @@ class Employee
 	}
 	public int getEmpid()
 	{
-		reurn empid;
+		return empid;
 	}
 }
 class Company

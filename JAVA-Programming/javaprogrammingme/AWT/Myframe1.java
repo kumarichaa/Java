@@ -1,4 +1,6 @@
+package AWT;
 import java.awt.*;
+
 class MyFrame1 
 {
 	Frame f;

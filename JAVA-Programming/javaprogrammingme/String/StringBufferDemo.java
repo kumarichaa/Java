@@ -1,3 +1,5 @@
+package String;
+
 class StringBufferDemo
 {
 	public static void main(String[] args)
@@ -44,8 +46,8 @@ class StringBufferDemo
 		System.out.println(sb.replace(3,6,"m"));
 		System.out.println(sb.reverse());
 		System.out.println(sb.subSequence(3,8));
-		System.out.println(sb.subString(3));
-		System.out.println(sb.subString(3,9));
+		System.out.println(sb.substring(3));
+		System.out.println(sb.substring(3,9));
 		
 		
 		

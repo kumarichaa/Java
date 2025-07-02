@@ -19,7 +19,7 @@ class KthLargestElement
 			}
 			if(i==k-1)
 			{
-				System.out.println(k+ "largest element is" +a[i]);
+				System.out.println(k+ "largest element is " +a[i]);
 				break;
 			}
 		}
@@ -27,7 +27,11 @@ class KthLargestElement
 		for(int i=0;i<a.length;i++)
 		{
 			System.out.print(a[i]+" ");
+
 		}
+
+					System.out.print("\n");
+
 	}
 
 }
