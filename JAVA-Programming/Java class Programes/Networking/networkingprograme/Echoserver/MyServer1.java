@@ -22,7 +22,7 @@ dis=new DataInputStream(s.getInputStream());
 dos=new DataOutputStream(s.getOutputStream());
 serverChat();				
 }
-catch(Exception e)
+catch(IOException e)
 {
 System.out.println(e);}
 }

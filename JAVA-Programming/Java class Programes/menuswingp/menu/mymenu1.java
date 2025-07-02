@@ -1,8 +1,7 @@
-import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-class mymenu1 extends MouseAdapter
+class myMenu1 extends MouseAdapter
 {
 
 	JFrame f=new JFrame();
@@ -12,7 +11,7 @@ class mymenu1 extends MouseAdapter
 	JMenuItem i3=new JMenuItem("Save");
 	JMenuItem i4=new JMenuItem("Exit");
 
-	mymenu1()
+	myMenu1()
 	{
 		p.add(i1);
 		p.add(i2);
@@ -34,7 +33,7 @@ if(x==MouseEvent.BUTTON3)
 	}
 	public static void main(String s[])
 	{
-		new mymenu1();
+		new myMenu1();
 		
 	}
 }	

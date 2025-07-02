@@ -11,7 +11,7 @@ if(flag==1)
 g.setColor(Color.RED);
 g.drawLine(70,70,200,200);
 }
-System.out.println("heelo");
+System.out.println("hello");
 }
 
 } 

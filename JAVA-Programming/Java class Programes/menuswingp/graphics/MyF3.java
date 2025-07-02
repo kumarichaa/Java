@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
 class MyF3  implements ActionListener
 {
 Button b;

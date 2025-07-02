@@ -1,6 +1,5 @@
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+
 class MyCanvas1 extends  Canvas
 {
 public void paint(Graphics g)

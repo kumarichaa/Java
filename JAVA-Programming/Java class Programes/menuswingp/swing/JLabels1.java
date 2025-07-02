@@ -2,12 +2,12 @@ import java.awt.*;
 import javax.swing.*;
 
 
-public class JLabels extends JFrame {
+public class JLabels1 extends JFrame {
   public static void main(String[] args) {
-    new JLabels();
+    new JLabels1();
   }
 
-  public JLabels() {
+  public JLabels1() {
     super("Using HTML in JLabels");
     WindowUtilities.setNativeLookAndFeel();
     addWindowListener(new ExitListener());

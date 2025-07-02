@@ -87,7 +87,7 @@ this.t=f;
 }
 public void mouseClicked(MouseEvent e1)
 {
-t.tf.setText("mouseevent");
+t.tf.setText("MouseEvent");
 t.f.setBackground(Color.RED);
 }
 }
